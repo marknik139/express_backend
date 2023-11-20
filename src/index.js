@@ -8,6 +8,7 @@ import config from './config.js';
 dotenv.config();
 
 const { connectionString } = config;
+// eslint-disable-next-line
 const PORT = process.env.PORT || 3228;
 
 const app = express();

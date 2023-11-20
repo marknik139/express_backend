@@ -1,6 +1,5 @@
 import User from '../models/User.js';
-import config from '../config.js';
-const {secret} = config;
+
 class userController {
     async getUser(req, res){
         const {username} = req.params;
@@ -14,7 +13,7 @@ class userController {
             console.log(e);
             res.status(400).json({message: 'GetUser error'});
         }
-    };
+    }
 
     async getUsers(req, res) {
         try {
@@ -24,7 +23,7 @@ class userController {
             console.log(e);
             res.status(400).json({message: 'GetUsers error'});
         }
-    };
+    }
 }
 
 export default new userController();
