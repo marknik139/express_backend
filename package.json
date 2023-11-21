@@ -5,9 +5,15 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "start:dev": "nodemon src/index.js",
+    "docker:build": "docker build -t express-backend .",
+    "docker:run": "docker run --name my-backend -p 8080:3001 -d express-backend",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
+  },
+  "engines": {
+    "node": "20.7.0"
   },
   "keywords": [],
   "author": "",
