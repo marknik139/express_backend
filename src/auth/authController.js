@@ -12,7 +12,7 @@ const generateAccessToken = (id, roles, username) => {
         roles,
         username,
     };
-    return jwt.sign(payload, secret, {expiresIn: '24h'});
+    return jwt.sign(payload, secret, {expiresIn: '12h'});
 };
 
 class authController {

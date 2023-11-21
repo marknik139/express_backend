@@ -32,5 +32,9 @@ module.exports = {
             'functions': 'ignore',
         }],
         'semi': ['warn', 'always'],
+        'no-trailing-spaces': 'error',
+        'no-multi-spaces': ['error'],
+        'key-spacing': ['error', { 'mode': 'minimum' }],
+
     },
 };
