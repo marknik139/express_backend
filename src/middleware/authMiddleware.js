@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
 import config from '../config.js';
 const {secret} = config;
+
 const middleware = function (req, res, next) {
     if (req.method === 'OPTIONS') {
         next();
