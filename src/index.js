@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import authRouter from './auth/authRouter.js';
 import userRouter from './users/userRouter.js';
 import config from './config.js';
+import queryRouter from './queries/queryRouter.js';
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ const app = express();
 app.use(express.json());
 app.use('/auth', authRouter);
 app.use('/users', userRouter);
+app.use('/queries', queryRouter);
 
 mongoose.connection.on('connected', () => {
     console.log('Connected to MongoDB');

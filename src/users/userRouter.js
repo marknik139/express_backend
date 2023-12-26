@@ -14,12 +14,13 @@ authRouter.get('/:username', [
     authMiddleware,
 ], controller.getUser);
 
-authRouter.get('/:username/is-key-specified', [
-    authMiddleware,
-], controller.isKeySpecified);
 
 authRouter.put('/:username/specify-key', [
     authMiddleware,
 ], controller.specifyKey);
+
+authRouter.get('/:username/is-key-specified', [
+    authMiddleware,
+], controller.isKeySpecified);
 
 export default authRouter;
