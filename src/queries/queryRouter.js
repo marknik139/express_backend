@@ -6,6 +6,6 @@ const queryRouter = new Router();
 
 queryRouter.post('/generate-query', [
     authMiddleware,
-], controller.generateQuery);
+], controller.generateQuery.bind(controller));
 
 export default queryRouter;

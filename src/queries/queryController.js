@@ -4,10 +4,15 @@ import User from '../models/User.js';
 class QueryController {
     async generateQuery(req, res) {
         const _id = req.user.id;
-        const { query } = req.body;
+        const { queryParams } = req.body;
         try {
+            if (!queryParams) {
+                return res.status(400).json({ message: 'Query params are not provided' });
+            }
+
+            const query = this.generatePrompt(queryParams);
             if (!query) {
-                return res.status(400).json({ message: 'Query is not provided' });
+                return res.status(400).json({ message: 'Generate prompt error' });
             }
 
             const user = await User.findOne({_id});
@@ -30,6 +35,12 @@ class QueryController {
             console.error(e);
             res.status(400).json({ message: 'Generate query error' });
         }
+    }
+
+    generatePrompt(queryParams){
+        const { subject, age, characters, length } = queryParams;
+        return `Generate a story about ${subject} suitable for ${age}-year-old child. 
+        The main characters are ${characters.join(', ')}. The length of the tale is ${length}`;
     }
 }
 
